@@ -1,0 +1,38 @@
+UI_GAMEOVER: Du bist gestorben
+UI_NEWHIGHSCORE: neuer Highscore!!
+UI_AGAIN: Nochmal
+UI_SHOWALLHIGHSCORE: Zeige alle Highscores
+UI_YOURNAME: Dein Name
+UI_DEATHWALL: Autsch!! Die Wand
+UI_DEATHSELF: Autsch!! Das war mein eigener Körper
+UI_SLOWMOTION_OFF: Slowmotion aus
+UI_SLOWMOTION_ON: Slowmotion an
+UI_DEBUGMODE_OFF: Debugmodus aus
+UI_DEBUGMODE_ON: Debugmodus an
+UI_POSX: posX
+UI_POSY: posY
+UI_DIRECTION: direction
+UI_PAUSE: Pause
+UI_START: Start
+UI_PLAYERNAME: Spielername
+UI_SCORE: Punkte
+UI_RESETHIGHSCORES: Setzte Highscores zurück
+UI_SURE_DELET_HIGHSCORES: Willst du alle Highscores wirklich löschen. Sie sind dann für immer verloren
+UI_SURE_DELET: Bist du Sicher
+UI_START_GAME: Starte das Spiel
+UI_EXIT: Beenden
+UI_MENU: Menu
+UI_HIGHSCORES: Highscores
+UI_SETTINGS: Einstellungen
+UI_SPEED: Geschwindigkeit
+UI_MAXRES: max. Auflösung
+UI_DISPLAYWIDTH: Bildschirmlänge
+UI_DISPLAYHEIGHT: Bildschirmhöhe
+UI_LANGUAGE: Sprache
+UI_EXPL_SPEED: Zeit in Milisekunden, die die Schlange wartet bis sie ein Feld weiter geht.
+UI_EXPL_LANGUAGE: Erfordet Neustart um Änderung auszuführen
+UI_NEEDS_RESTART: Einige Änderungen erfordern eine Neustart um ausgeführt zu werden
+UI_YES: Ja
+UI_NO: Nein
+UI_CANCEL: Abrechen
+UI_OK: Ok

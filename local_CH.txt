@@ -1,0 +1,38 @@
+UI_GAMEOVER: Du bisch gstorbe
+UI_NEWHIGHSCORE: neue Highscore!!
+UI_AGAIN: Nomol
+UI_SHOWALLHIGHSCORE: Zeig alli Highscores
+UI_YOURNAME: Din Name
+UI_DEATHWALL: Autsch!! d'Wand
+UI_DEATHSELF: Autsch!! Das isch mi eigener Körper gse
+UI_SLOWMOTION_OFF: Slowmotion us
+UI_SLOWMOTION_ON: Slowmotion a
+UI_DEBUGMODE_OFF: Debugmodus us
+UI_DEBUGMODE_ON: Debugmodus a
+UI_POSX: posX
+UI_POSY: posY
+UI_DIRECTION: direction
+UI_PAUSE: Pause
+UI_START: Start
+UI_PLAYERNAME: Spielername
+UI_SCORE: Punkt
+UI_RESETHIGHSCORES: Setzt Highscores zrück
+UI_SURE_DELET_HIGHSCORES: Willsch alli Highscores wirkli lösche. Sie sind denn für immer verlore
+UI_SURE_DELET: Bisch du sicher
+UI_START_GAME: Start s'Spiel
+UI_EXIT: Beende
+UI_MENU: Menu
+UI_HIGHSCORES: Highscores
+UI_SETTINGS: Istellige
+UI_SPEED: Gschwindigkeit
+UI_MAXRES: max. Uflösig
+UI_DISPLAYWIDTH: Bildschirmlängi
+UI_DISPLAYHEIGHT: Bildschirmhöchi
+UI_LANGUAGE: Sproch
+UI_EXPL_SPEED: Zyt in Milisekunde, die d'Schlange wartet bis sie e Feld wieter goht.
+UI_EXPL_LANGUAGE: Erforderet Neustart um Änderige uszführe
+UI_NEEDS_RESTART: Einige Änderungen erfordern eine Neustart um ausgeführt zu werden
+UI_YES: Jo
+UI_NO: Nei
+UI_CANCEL: Abreche
+UI_OK: Okey

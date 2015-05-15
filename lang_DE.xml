@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<UserInterface>
+	<GameOverPanel>
+		<gameOver>"Du bist gestorben"</gameOver>
+		<newHighscore></newHighscore>
+		<again></again>
+		<showAllHighscore></showAllHighscore>
+		<yourName></yourName>
+		<deathWall></deathWall>
+		<deathSelf></deathSelf>
+	</GameOverPanel>
+	<GamePanel>
+		<pause></pause>
+		<start></start>
+	</GamePanel>
+	<HighScorePanel>
+		<playerName></playerName>
+		<score></score>
+		<resetHighscore></resetHighscore>
+		<sureDeletHighscores></sureDeletHighscores>
+		<sureDelet></sureDelet>
+	</HighScorePanel>
+	<MenuPanel>
+		<startGame></startGame>
+		<exit></exit>
+	</MenuPanel>
+	<SettingsPanel>
+		<speed></speed>
+		<maxResolution></maxResolution>
+		<displayWidth></displayWidth>
+		<displayHeight></displayHeight>
+		<language></language>
+		<explSpeed></explSpeed>
+		<needsRestart></needsRestart>
+		<SomeneedRestart></SomeneedRestart>
+	</SettingsPanel>
+	<general>
+		<menu></menu>
+		<highscores></highscores>
+		<settings></settings>
+		<yes></yes>
+		<no></no>
+		<cancel></cancel>
+		<OK></OK>
+	</general>
+</UserInterface>
+
+
+
+	

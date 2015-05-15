@@ -1,0 +1,38 @@
+UI_GAMEOVER: game over
+UI_NEWHIGHSCORE: new highscore!!
+UI_AGAIN: again
+UI_SHOWALLHIGHSCORE: show all highscore
+UI_YOURNAME: your name
+UI_DEATHWALL: Autsch!! The Wall
+UI_DEATHSELF: Autsch!! That was my own Body
+UI_SLOWMOTION_OFF: slowmotion off
+UI_SLOWMOTION_ON: slowmotion on
+UI_DEBUGMODE_OFF: debugmode off
+UI_DEBUGMODE_ON: debugmode on
+UI_POSX: posX
+UI_POSY: posY
+UI_DIRECTION: direction 
+UI_PAUSE: pause
+UI_START: start
+UI_PLAYERNAME: playername
+UI_SCORE: score
+UI_RESETHIGHSCORES: reset highscores
+UI_SURE_DELET_HIGHSCORES: Do you really want to delet all highscores, they will be lost forever?
+UI_SURE_DELET: Are you sure?
+UI_START_GAME: start game
+UI_EXIT: exit
+UI_MENU: menu
+UI_HIGHSCORES: highscores
+UI_SETTINGS: settings
+UI_SPEED: speed
+UI_MAXRES: max. resolution
+UI_DISPLAYWIDTH: displaywidth
+UI_DISPLAYHEIGHT: displayheight
+UI_LANGUAGE: language
+UI_EXPL_SPEED: Time in miliseconds the snake waits until if moves one field further.
+UI_EXPL_LANGUAGE: Needs to restart to perfom the change.
+UI_NEEDS_RESTART: Some changes requires to restart to perform.
+UI_YES: Yes
+UI_NO: No
+UI_CANCEL: Cancel 
+UI_OK: Ok
