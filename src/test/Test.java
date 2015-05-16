@@ -1,28 +1,16 @@
 package test;
 
-import java.io.File;
-
-import gui.Snake2;
-
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.UIManager;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-
-import objects.Language;
-
-
+import java.util.ArrayList;
 
 public class Test {
 
 	public static void main(String[] args) {
+		//Language lang = new Language();
+
+		ArrayList<String> list = new ArrayList<>();
+		System.out.println(list.indexOf("test"));
 		
-		try {
+/*		try {
 			File xlmFile = new File("settings.xml");
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -38,6 +26,6 @@ public class Test {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
+*/	}
 
 }

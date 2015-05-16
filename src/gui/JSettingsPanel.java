@@ -1,51 +1,47 @@
 package gui;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import objects.LangStringGroup;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 public class JSettingsPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
+	LangStringGroup lsg;
+
 	public JSettingsPanel(final Snake2 snake2) {
-		JLabel lblSettings = new JLabel(snake2.lang.UI_SETTINGS.toUpperCase());
-		JButton btnMenu = new JButton(snake2.lang.UI_MENU);
+		lsg = snake2.lang.getStrings("JSettingsPanel");
+		JLabel lblSettings = new JLabel(lsg.getString("Settings").toUpperCase());
+		JButton btnMenu = new JButton(lsg.getString("Menu"));
 		
-		JLabel lblGameSettings = new JLabel(snake2.lang.UI_GAME_SETTINGS);
-		JLabel lblSleeptime = new JLabel(snake2.lang.UI_SPEED + ": ");
+		JLabel lblGameSettings = new JLabel(lsg.getString("GameSettings"));
+		JLabel lblSleeptime = new JLabel(lsg.getString("Speed") + ": ");
 		final JTextField tFieldSleeptime = new JTextField(5);
 		
-		JLabel lblResolutionSettings = new JLabel(snake2.lang.UI_RES_SETTINGS);
-		final JCheckBox ckBoxMaxRes = new JCheckBox(snake2.lang.UI_MAXRES);
-		JLabel lblWidth = new JLabel(snake2.lang.UI_DISPLAYWIDTH + ": ");
+		JLabel lblResolutionSettings = new JLabel(lsg.getString("ResSettings"));
+		final JCheckBox ckBoxMaxRes = new JCheckBox(lsg.getString("MaxRes"));
+		JLabel lblWidth = new JLabel(lsg.getString("DisplayWidth") + ": ");
 		final JTextField tFieldWidth = new JTextField(5);
-		JLabel lblHeight = new JLabel(snake2.lang.UI_DISPLAYHEIGHT + ": ");
+		JLabel lblHeight = new JLabel(lsg.getString("DisplayHeight") + ": ");
 		final JTextField tFieldHeight = new JTextField(5);
 		
-		JLabel lblLanguageSettings = new JLabel(snake2.lang.UI_LANG_SETTINGS);
-		JLabel lblLanguage = new JLabel(snake2.lang.UI_LANGUAGE);
+		JLabel lblLanguageSettings = new JLabel(lsg.getString("LangSettings"));
+		JLabel lblLanguage = new JLabel(lsg.getString("Language"));
 		String[] languages = snake2.settings.SUPPORTEDLANG;
 		final JComboBox<String> comboLang = new JComboBox<>(languages);
-		JButton btnNewLang = new JButton(snake2.lang.UI_NEW_LANG);
+		JButton btnNewLang = new JButton(lsg.getString("NewLang"));
 		
-		lblSleeptime.setToolTipText(snake2.lang.UI_EXPL_SPEED);
-		comboLang.setToolTipText(snake2.lang.UI_EXPL_LANGUAGE);
-		lblLanguage.setToolTipText(snake2.lang.UI_EXPL_LANGUAGE);
-		ckBoxMaxRes.setToolTipText(snake2.lang.UI_EXPL_LANGUAGE);
-		lblWidth.setToolTipText(snake2.lang.UI_EXPL_LANGUAGE);
-		tFieldWidth.setToolTipText(snake2.lang.UI_EXPL_LANGUAGE);
-		lblHeight.setToolTipText(snake2.lang.UI_EXPL_LANGUAGE);
-		tFieldHeight.setToolTipText(snake2.lang.UI_EXPL_LANGUAGE);
+		lblSleeptime.setToolTipText(lsg.getString("ExplSpeed"));
+		comboLang.setToolTipText(lsg.getString("ExplLanguage"));
+		lblLanguage.setToolTipText(lsg.getString("ExplLanguage"));
+		ckBoxMaxRes.setToolTipText(lsg.getString("ExplLanguage"));
+		lblWidth.setToolTipText(lsg.getString("ExplLanguage"));
+		tFieldWidth.setToolTipText(lsg.getString("ExplLanguage"));
+		lblHeight.setToolTipText(lsg.getString("ExplLanguage"));
+		tFieldHeight.setToolTipText(lsg.getString("ExplLanguage"));
 		
 		//write the values in the TextFields
 		tFieldSleeptime.setText(String.valueOf(snake2.settings.SLEEPTIME));
@@ -155,7 +151,7 @@ public class JSettingsPanel extends JPanel {
 		ActionListener goMenu = new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(comboLang.getSelectedItem() != snake2.settings.LANG) {
-					JOptionPane.showConfirmDialog(snake2.mainFrame, snake2.lang.UI_NEEDS_RESTART, "!!", JOptionPane.OK_OPTION);
+					JOptionPane.showConfirmDialog(snake2.mainFrame, lsg.getString("NeedsRestart"), "!!", JOptionPane.OK_OPTION);
 				}
 				//Write all new settings in the settings-class
 				snake2.settings.SLEEPTIME = Integer.valueOf(tFieldSleeptime.getText());
@@ -172,6 +168,7 @@ public class JSettingsPanel extends JPanel {
 		
 		ActionListener goNewLang = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				snake2.pnlNewLang.reloadList(snake2);
 				snake2.pnlSettings.setVisible(false);
 				snake2.pnlNewLang.setVisible(true);
 			}

@@ -1,29 +1,12 @@
 package gui;
 
-import java.awt.Font;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import objects.*;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Collections;
-
-import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.ActionMap;
-import javax.swing.InputMap;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.KeyStroke;
-import javax.swing.UIManager;
-
-import objects.Settings;
-import objects.EntitySnake;
-import objects.Food;
-import objects.Language;
-import objects.World;
 
 public class Snake2 {
 
@@ -60,6 +43,8 @@ public class Snake2 {
 	public Font FONT_TEXT = new Font("TimesRoman", Font.PLAIN, 15);
 	public Font FONT_SMALL_TITLE = new Font("TimesRoman", Font.BOLD, 20);
 	public Font FONT_SMALL_TEXT = new Font("TimesRoman", Font.PLAIN, 10);
+
+	LangStringGroup lsg;
 	
 	public static void main(String[] args) {
 		init();
@@ -93,12 +78,14 @@ public class Snake2 {
 		instance.isOpened = true;
 		
 		instance.gameOver = 'n';
-		
+
+		instance.lsg = instance.lang.getStrings("Snake2");
+
 		//Ändert Sprache beim JOptionPane
-		UIManager.put("OptionPane.cancelButtonText", instance.lang.UI_CANCEL);
-		UIManager.put("OptionPane.noButtonText", instance.lang.UI_NO);
-		UIManager.put("OptionPane.okButtonText", instance.lang.UI_OK);
-		UIManager.put("OptionPane.yesButtonText", instance.lang.UI_YES);
+		UIManager.put("OptionPane.cancelButtonText", instance.lsg.getString("Cancel"));
+		UIManager.put("OptionPane.noButtonText", instance.lsg.getString("No"));
+		UIManager.put("OptionPane.okButtonText", instance.lsg.getString("Ok"));
+		UIManager.put("OptionPane.yesButtonText", instance.lsg.getString("Yes"));
 		
 		//Fügt KeyBindings zum Steuern der Schlange hinzu
 		Action leftAction = new LeftAction();
@@ -191,9 +178,9 @@ public class Snake2 {
 		while(instance.isOpened) {
 			
 			if(instance.settings.DEBUGMODE) {
-				instance.pnlGame.lblPosX.setText(instance.lang.UI_POSX + ": " + instance.snake.getPosX());
-				instance.pnlGame.lblPosY.setText(instance.lang.UI_POSY + ": " + instance.snake.getPosY());
-				instance.pnlGame.lblDirection.setText(instance.lang.UI_DIRECTION + ": " + instance.snake.direction);
+				instance.pnlGame.lblPosX.setText(instance.lsg.getString("PosX") + ": " + instance.snake.getPosX());
+				instance.pnlGame.lblPosY.setText(instance.lsg.getString("PosY") + ": " + instance.snake.getPosY());
+				instance.pnlGame.lblDirection.setText(instance.lsg.getString("Direction") + ": " + instance.snake.direction);
 				instance.pnlGame.lblFrameSize.setText("FrameSize: " + instance.mainFrame.getWidth() + "x" + instance.mainFrame.getHeight());
 				instance.pnlGame.lblFieldSize.setText("FieldSize: " + instance.pnlField.width + "x" + instance.pnlField.height);
 				instance.pnlGame.lblSizeOfAField.setText("SizeOfAField: " + instance.pnlField.fieldWidth + "x" + instance.pnlField.fieldHeight);
@@ -205,7 +192,7 @@ public class Snake2 {
 			if(instance.isRunning) {
 				//System.out.println("update");
 				//write all the debuginformatione
-				instance.pnlGame.lblScore.setText(instance.lang.UI_SCORE + " :" + instance.snake.getLength());
+				instance.pnlGame.lblScore.setText(instance.lsg.getString("Score") + " :" + instance.snake.getLength());
 				instance.snake.nextStep(instance);
 				instance.pnlField.repaint();
 			}

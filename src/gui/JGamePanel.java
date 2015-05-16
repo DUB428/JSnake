@@ -1,13 +1,11 @@
 package gui;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import objects.LangStringGroup;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 /*
  * The debugmode information labels are not all using strings from Language class
@@ -23,15 +21,18 @@ public class JGamePanel extends JPanel{
 	JLabel lblFrameSize;
 	JLabel lblFieldSize;
 	JLabel lblSizeOfAField;
+
+	LangStringGroup lsg;
 	
 	public JGamePanel(final Snake2 snake2) {
-		btnStart = new JButton(snake2.lang.UI_START);
-		final JButton btnSlowMotion = new JButton(snake2.lang.UI_SLOWMOTION_ON);
-		final JButton btnMenu = new JButton(snake2.lang.UI_MENU);
-		lblPosX = new JLabel(snake2.lang.UI_POSX + ": ");
-		lblPosY = new JLabel(snake2.lang.UI_POSY + ": ");
-		lblDirection = new JLabel(snake2.lang.UI_DIRECTION + ": ");
-		lblScore = new JLabel(snake2.lang.UI_SCORE + ": ");
+		lsg = snake2.lang.getStrings("JGamePanel");
+		btnStart = new JButton(lsg.getString("Start"));
+		final JButton btnSlowMotion = new JButton(lsg.getString("SlowmotionOn"));
+		final JButton btnMenu = new JButton(lsg.getString("Menu"));
+		lblPosX = new JLabel(lsg.getString("PosX") + ": ");
+		lblPosY = new JLabel(lsg.getString("PosY") + ": ");
+		lblDirection = new JLabel(lsg.getString("Direction") + ": ");
+		lblScore = new JLabel(lsg.getString("Score") + ": ");
 		lblFrameSize = new JLabel("FrameSize: ");
 		lblFieldSize = new JLabel("FieldSize: ");
 		lblSizeOfAField = new JLabel("SizeOfAField: ");
@@ -124,17 +125,17 @@ public class JGamePanel extends JPanel{
 		ActionListener goStart = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(snake2.gameOver != 'n') {
-					btnStart.setText(snake2.lang.UI_PAUSE);
+					btnStart.setText(lsg.getString("Pause"));
 					snake2.isRunning = true;
 					snake2.snake.respawn(snake2);
 					snake2.gameOver = 'n';
 					snake2.food.respawn(snake2);
 					snake2.pnlField.repaint();
 				}else if(snake2.isRunning) {
-					btnStart.setText(snake2.lang.UI_START);
+					btnStart.setText(lsg.getString("Start"));
 					snake2.isRunning = false;
 				} else {
-					btnStart.setText(snake2.lang.UI_PAUSE);
+					btnStart.setText(lsg.getString("Pause"));
 					snake2.isRunning = true;
 				}
 			}
@@ -143,11 +144,11 @@ public class JGamePanel extends JPanel{
 		ActionListener goSlowMotion = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(snake2.slowMotion) {
-					btnSlowMotion.setText(snake2.lang.UI_SLOWMOTION_ON);
+					btnSlowMotion.setText(lsg.getString("SlowmotionOn"));
 					snake2.settings.SLEEPTIME /= 20;
 					snake2.slowMotion = false;
 				} else {
-					btnSlowMotion.setText(snake2.lang.UI_SLOWMOTION_OFF);
+					btnSlowMotion.setText(lsg.getString("SlowmotionOff"));
 					snake2.settings.SLEEPTIME *= 20;
 					snake2.slowMotion = true;
 				}

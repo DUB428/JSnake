@@ -1,38 +1,29 @@
 package gui;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import objects.LangStringGroup;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.UIManager;
-import javax.swing.table.DefaultTableModel;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.w3c.dom.Document;
 
 public class JHighScoresPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 	
 	DefaultTableModel mdlHighScores;
-	
+	LangStringGroup lsg;
+
 	public JHighScoresPanel(final Snake2 snake2) {
+		lsg = snake2.lang.getStrings("JHighScoresPanel");
 		JTable tblHighScores = new JTable();
 		String[][] settings = {};
-		String[] columnNames = {snake2.lang.UI_PLAYERNAME, snake2.lang.UI_SCORE};
+		String[] columnNames = {lsg.getString("PlayerName"), lsg.getString("Score")};
 		mdlHighScores = new DefaultTableModel(settings, columnNames);
 		JScrollPane spHighScores = new JScrollPane();
-		JButton btnMenu = new JButton(snake2.lang.UI_MENU);
-		JLabel lblHighScores = new JLabel(snake2.lang.UI_HIGHSCORES.toUpperCase());
-		JButton btnReset = new JButton(snake2.lang.UI_RESETHIGHSCORES);
+		JButton btnMenu = new JButton(lsg.getString("Menu"));
+		JLabel lblHighScores = new JLabel(lsg.getString("Highscores").toUpperCase());
+		JButton btnReset = new JButton(lsg.getString("ResetHighscores"));
 		
 		tblHighScores.setEnabled(false);
 		spHighScores.setViewportView(tblHighScores);
@@ -86,7 +77,7 @@ public class JHighScoresPanel extends JPanel{
 		
 		ActionListener goReset = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int sure = JOptionPane.showConfirmDialog(snake2.mainFrame, snake2.lang.UI_SURE_DELET_HIGHSCORES, snake2.lang.UI_SURE_DELET, JOptionPane.YES_NO_OPTION);
+				int sure = JOptionPane.showConfirmDialog(snake2.mainFrame, lsg.getString("SureDeletHighscores"), lsg.getString("SureDelet"), JOptionPane.YES_NO_OPTION);
 				if(sure == 0) {
 					snake2.settings.resetHIGHSCORE();
 					updatedContent(snake2);

@@ -1,30 +1,29 @@
 package gui;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import objects.LangStringGroup;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 public class JGameOverPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	JLabel lblReason, lblScore, lblHighScore, lblName;
 	JButton btnHighScore;
 	JTextField tFieldName;
+	LangStringGroup lsg;
 	int score;
 	public JGameOverPanel(final Snake2 snake2) {
-		JLabel lblGameOver = new JLabel(snake2.lang.UI_GAMEOVER.toUpperCase());
+		lsg = snake2.lang.getStrings("JGameOverPanel");
+		JLabel lblGameOver = new JLabel(lsg.getString("GameOver").toUpperCase());
 		lblReason = new JLabel();
 		lblScore = new JLabel();
-		lblHighScore = new JLabel(snake2.lang.UI_NEWHIGHSCORE.toUpperCase());
-		JButton btnAgain = new JButton(snake2.lang.UI_AGAIN);
-		JButton btnMenu = new JButton(snake2.lang.UI_MENU);
-		btnHighScore = new JButton(snake2.lang.UI_SHOWALLHIGHSCORE);
-		lblName = new JLabel(snake2.lang.UI_YOURNAME + ":");
+		lblHighScore = new JLabel(lsg.getString("NewHighscore").toUpperCase());
+		JButton btnAgain = new JButton(lsg.getString("Again"));
+		JButton btnMenu = new JButton(lsg.getString("Menu"));
+		btnHighScore = new JButton(lsg.getString("ShowAllHighscore"));
+		lblName = new JLabel(lsg.getString("YourName") + ":");
 		tFieldName = new JTextField(10);
 		
 		tFieldName.setText(snake2.settings.DEFAULTNAME);
@@ -87,7 +86,7 @@ public class JGameOverPanel extends JPanel {
 		ActionListener goAgain = new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//add Score
-				snake2.settings.addHIGHSCORE(score, tFieldName.getText());snake2.pnlGame.btnStart.setText(snake2.lang.UI_START);
+				snake2.settings.addHIGHSCORE(score, tFieldName.getText());snake2.pnlGame.btnStart.setText(lsg.getString("Start"));
 				
 				snake2.isRunning = false;
 				snake2.snake.respawn(snake2);
@@ -107,7 +106,7 @@ public class JGameOverPanel extends JPanel {
 				//add Score
 				snake2.settings.addHIGHSCORE(score, tFieldName.getText());
 				
-				snake2.pnlGame.btnStart.setText("Start");
+				snake2.pnlGame.btnStart.setText(lsg.getString("Start"));
 				snake2.isRunning = false;
 				snake2.snake.respawn(snake2);
 				snake2.gameOver = 'n';
@@ -126,7 +125,7 @@ public class JGameOverPanel extends JPanel {
 				//add Score
 				snake2.settings.addHIGHSCORE(score, tFieldName.getText());
 				
-				snake2.pnlGame.btnStart.setText(snake2.lang.UI_START);
+				snake2.pnlGame.btnStart.setText(lsg.getString("Start"));
 				snake2.isRunning = false;
 				snake2.snake.respawn(snake2);
 				snake2.gameOver = 'n';
@@ -149,9 +148,9 @@ public class JGameOverPanel extends JPanel {
 	
 	public void showGameOver(Snake2 snake2, char gameOver, int score, boolean highScore) {
 		if(gameOver == 'w') {
-			lblReason.setText(snake2.lang.UI_DEATHWALL);
+			lblReason.setText(lsg.getString("DeathWall"));
 		} else if(gameOver == 's') {
-			lblReason.setText(snake2.lang.UI_DEATHSELF);
+			lblReason.setText(lsg.getString("DeathSelf"));
 		}
 		
 		lblScore.setText(String.valueOf(score));

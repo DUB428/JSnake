@@ -1,22 +1,23 @@
 package gui;
 
-import java.awt.GridLayout;
+import objects.LangStringGroup;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 public class JMenuPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
+	LangStringGroup lsg;
 
 	public JMenuPanel(final Snake2 snake2) {
+		lsg = snake2.lang.getStrings("JMenuPanel");
 		JLabel lblTitle = new JLabel(snake2.settings.TITLE);
-		JButton btnSnake = new JButton(snake2.lang.UI_START_GAME);
-		JButton btnSettings = new JButton(snake2.lang.UI_SETTINGS);
-		JButton btnBestScores = new JButton(snake2.lang.UI_HIGHSCORES);
-		JButton btnExit = new JButton(snake2.lang.UI_EXIT);
+		JButton btnSnake = new JButton(lsg.getString("StartGame"));
+		JButton btnSettings = new JButton(lsg.getString("Settings"));
+		JButton btnBestScores = new JButton(lsg.getString("Highscores"));
+		JButton btnExit = new JButton(lsg.getString("Exit"));
 		
 		//Fonts
 		lblTitle.setFont(snake2.FONT_TITLE);
